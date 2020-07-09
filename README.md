@@ -15,8 +15,9 @@ The students even had a chance to complete and submit their own pre-registration
 Walking the students through each step, I put the experiment up on MTurk and we watched participants sign up and complete our experiment in real time. 
 The students spent the majority of the research labs analyzing the results to their specific hypotheses. <br>
 
-## Material
+## Materials 
+- Pre summer school assignments
 - The experiment is posted in the exp-js folder
-- All questions and surverys are included in the exps-js folder
-- The powerpoints for the research labs are included
-- We had ethics approval for this experiment (but those files are not included here)
+- All questions and surverys are in the exps-js folder
+- The powerpoints for the research labs 
+- We had ethics approval (but those files are not included here)
