@@ -17,5 +17,6 @@ The students spent the majority of the research labs analyzing the results to th
 
 ## Material
 - The experiment is posted in the exp-js folder
+- All questions and surverys are included in the exps-js folder
 - The powerpoints for the research labs are included
 - We had ethics approval for this experiment (but those files are not included here)
