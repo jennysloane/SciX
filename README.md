@@ -7,7 +7,7 @@ Before the summer school began, I coded an experiment in javascript using jspsyc
 The experiment also included a few demographic questions, BIG5 personality inventory, the BIS (impulsivity scale), and a self-control scale.
 You can find the final version of the experiment in the exp-js folder and it's called "index". <br><br>
 I worked with the students online to help them develop unique hypotheses. 
-I also created a few online assignments for the students to complete to better prepare them for the summer school <br>
+I also created a few online assignments for the students to complete to better prepare them for the summer school. <br>
 
 ## Summer School
 During the summer school, we had a total of 9 research labs. Some of the labs were lectures, where I covered topics, including pre-registration, ethics, the different cognitive tasks in our experiment, and an intro to stats. 
