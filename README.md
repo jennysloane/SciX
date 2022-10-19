@@ -1,6 +1,7 @@
-# SciX 2019-2020
+# SciX 
 
-I had the pleasure to mentor 5 incredible high school students in a summer school program called SciX at the University of New South Wales in Jan 2020.
+# 2019-2020
+I had the pleasure to mentor 5 incredible high school students in a summer school program called SciX at the University of New South Wales in Jan 2020. This was the first year SciX was run at the university and I'm so glad I had the opportunity to be involved
 
 ## Pre Summer School
 Before the summer school began, I coded an experiment in javascript using jspsych. The experiment includes CRT items, the flanker task, and a random dot motion paradigm.
@@ -21,3 +22,6 @@ The students spent the majority of the research labs analyzing the results to th
 - All questions and surverys are in the exps-js folder
 - The powerpoints for the research labs 
 - We had ethics approval (but those files are not included here)
+
+# 2021 Folder
+Because of Covid, we had to make several modification to our course including converting it to an online course. In this folder, you can find all of the pre-work and the PowerPoint slides. The experiment was fairly similar with a few additions, so I've uploaded the index.html file (the code for the actual experiment). However, all of the other files necessary to run the experiment are in the 2019 folder.
