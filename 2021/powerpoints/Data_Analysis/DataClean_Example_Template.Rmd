@@ -1,0 +1,200 @@
+---
+title: "DataClean_Example_Template"
+output: html_document
+---
+This script is written for you to learn how to (later in the course) clean your own data and to test your hypotheses.   
+
+### load libraries
+We start with loading the needed libraries. Remember, if you are using a package for the first time, you'll need to install it first: install.packages("your_package")
+```{r}
+
+```
+
+We will start by calling in our fake data. We will proceed to manipulating the data, then plot the data, and finally go through some statistical tests to examine our hypothesis.
+
+### 1. here 
+First, we want to ensure that we are in our Rproject, where all the rest of the files are stored. We will do so by using the 'here' function
+```{r}
+
+```
+
+
+### 2. read in data 
+We will call in the data (file: 'Example_SciX.csv') and will assign it into an object name: 'My_Data'
+```{r}
+
+```
+
+
+### 3. head
+Now, lets take a brief look into our data. As the R console is too small to display the full table, we will look only at the top part of the table. To do so we will use the 'head' function. 
+```{r}
+
+```
+
+
+### 4. data structure 
+Its important to look at structure of your data (i.e. number of columns, their type and the number of rows/observations). For that, we will use the function 'str'. 
+```{r}
+
+```
+
+### 4.1. tidy data 
+Another way to view your data is a "tidy" way is to convert it to a tibble (which is a simple dataframe). 
+```{r}
+
+```
+
+
+### 5. change variable type 
+Hmmmmm..... something is weird... the variable Gender is a type 'int' (int = integer). This means that R considers females as equal to 0 and male to 1. However, I wanted Gender values (i.e. 0 and 1) to represent categories and not mathematical values (females' value is not 0, right? ;)). We have to tell R to treat those values as categories. The correct type for categorizing a variable in R is a factor/character. We use the function 'as.factor' to change the type of Gender to categories. 
+```{r}
+
+```
+
+
+### 6. select rows 
+Great... but there are still some super silly columns that we can get rid of (unless you are really interested in the link between the number of cats and shoes size). This will make our life easier and we will be able to look only at the columns we are interested in. Remember, our hypothesis is: There is a link between Gender and IQ scores. Here, we will ask R to give us only the columns of interest: 'ID', 'Gender' and 'IQ_Score'. We will assign this new subset-data into a new variable called My_SubData. 
+```{r}
+
+```
+
+### 7. rename
+Lets say that now I want to change the name of the IQ_Score column to IQ_TestResults. We can do so by using the 'rename' function within 'dplyr' package (that you should know a bit by now). Super easy.. 
+```{r}
+
+```
+
+
+### 8. recode 
+Now, Gender = 0/1 is not clear enough and that we can later on forget what the categories/coding mean. We can solve this by creating a new column (in dplyr it is called 'mutate') that will contain the letter F if Gender = 0 and the letter M if Gender = 1. We will use the 'recode' function within 'dplyr' package to assign the right letters to the right categories. 
+```{r}
+
+```
+
+### 9. summary stats 
+Looking good! Now lets look at some summary statistics. We will use the 'summary' function to investigate the IQ scores of our participants. Also, we will use the function 'table' to know how many men and women we have in our data-set. 
+```{r}
+
+```
+
+
+### 10. filter 
+Another useful tool in R is the ability to easily filter our data. For instance, we can look at the data of the fifth participant (i.e. ID = 5) only. There are many eays to do so. Here we will use the 'filter' function. This function takes the data you wish to filter and 'cuts out' the part of the data-set you wish to obtain. We will assign the fifth participant's data into a new object that is called 'Data_ID5'
+```{r}
+
+```
+
+Here is another example of the 'filter' function: Lets say we want to look at the data of those participants with IQ_Score greater than 120.
+```{r}
+
+```
+
+
+### 11. reverse coding 
+Sometimes surveys have items that need to be "reverse coded", which means that some items are scored in the opposite direction. For example, the impulsivity survey has a scale from 1 (rarely/never) to 4 (almost always/always). Let's look at two items as an example. Item #2 is: "I do things without thinking", so 4 on the scale represents someone who is impulsive. On the other hand, item #1 is: "I plan tasks carefully", so here 4 on the scale represents someone who is NOT impulsive. Therefore, this item must be reverse coded, so we must make 0=4, 1=3, 2=2, 3=1, and 4=0. Here's some code to show you how we can do this easily with R.
+
+First, let's add fake survey items to the data, so we can practice reverse coding
+```{r}
+My_Data_R <- My_SubData %>%
+  mutate(item1 = sample(c(1,2,3,4), 300, replace=TRUE), 
+         item2 = sample(c(0,1,2,3,4), 300, replace=TRUE),
+         item3 = sample(c(0,1,2,3,4), 300, replace=TRUE))
+
+```
+
+To reverse code item1, we need to make: 1=4, 2=3, 3=2, 4=1
+Double check to make sure item1 is the reverse of item1_reverse!
+```{r}
+
+```
+
+To reverse code item2, we need to make: 0=4, 1=3, 2=2, 3=1, 4=0
+```{r}
+
+```
+
+We can do it all together like this
+```{r}
+
+```
+
+
+### 12. plot 
+We can now start to plot the data we have.
+
+Remember, our sample research question is to see if gender is related to IQ? We'll use the My_SubData here
+```{r}
+
+```
+
+
+geom_point() plots a point for every data point. 
+aes() is to specify the aesthetics.
+This isn't so informative though, just a lot of dots on top of each other. 
+```{r}
+
+```
+
+
+geom_jitter() plots the same as geom_point, but "jitters" the points so not on top of each other (I've also added color in)
+```{r}
+
+```
+
+geom_histogram() plots a histogram
+```{r}
+
+```
+
+facet_wrap() divides the plot by a selected variable
+```{r}
+
+```
+
+geom_density() a smoothed version of the histogram
+```{r}
+ggplot(My_SubData, aes(IQ_TestResults, fill=Gender_Name)) +  
+  geom_histogram(aes(y = ..density..), bins = 20, color="black") + # density rather than count, same as count just a different scale. area beneath density curve = 1
+  geom_density(bins = 20, alpha=.4) +
+  facet_wrap(~Gender_Name) 
+```
+
+boxplot() plots a boxplot. This one is especially useful to compare IQ by gender. 
+We can see the red and blue lines are at about the same IQ level, which gives us reason to believe there may not be a difference between male and female IQ (but we'll have to do a statistical test to be confident)
+```{r}
+
+```
+
+Let's make this boxplot prettier!
+```{r}
+
+```
+
+### 13. statistical analyses 
+descriptive statistics (e.g mean, median, etc)
+```{r}
+
+```
+
+t test = compares means of 2 groups 
+remember, if p < 0.05 there is a significant difference between the two groups
+```{r}
+
+```
+
+cor.test = correlation between 2 continuous variables
+```{r}
+
+```
+
+chisq.test = test between 2 categorical variables
+```{r}
+
+```
+
+
+ANOVA - analysis of variance, analyze the differences among group means in a sample (especially useful if you are comparing more than 2 groups)
+```{r}
+
+```
