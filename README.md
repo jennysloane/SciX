@@ -1,8 +1,11 @@
 # SciX 
+I had the pleasure to mentor high school students in a summer school program called SciX at the University of New South Wales for a few years during my PhD (2018-2021). I was part of SciX from the first year it was run at the university and I'm so glad I had the opportunity to be involved! 
+
+The goal of the summemr school.... 
+
+The first year, the summer school was in person, but because it was a new program the class sizes very small - I mentored 5 awesome high school students. 
 
 # 2019-2020
-I had the pleasure to mentor 5 incredible high school students in a summer school program called SciX at the University of New South Wales in Jan 2020. This was the first year SciX was run at the university and I'm so glad I had the opportunity to be involved
-
 ## Pre Summer School
 Before the summer school began, I coded an experiment in javascript using jspsych. The experiment includes CRT items, the flanker task, and a random dot motion paradigm.
 The experiment also included a few demographic questions, BIG5 personality inventory, the BIS (impulsivity scale), and a self-control scale.
